@@ -1,0 +1,63 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: rgba(0,0,255,.10);
+}
+
+canvas
+{
+    position: absolute;
+}
+
+.bm,
+.bm2
+{
+    font-family: Arial;
+    font-size: 60px;
+    font-weight: bold;
+
+    position: fixed;
+    top: 1px;
+    right: 20px;
+
+    color: rgba(149, 149, 255, .5);
+}
+
+.bm2
+{
+    font-size: 20px;
+
+    top: auto;
+    right: auto;
+    bottom: 5px;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+}
+
+
+
+.buttonStart
+{
+    font-family: Arial;
+    font-size: 40px;
+    font-weight: bold;
+
+    position: fixed;
+    z-index: 99999;
+    top: 40%;
+    left: 50%;
+
+    padding: 9px 18px;
+
+    transform: translate(-50%, 0);
+
+    color: rgba(0, 0, 255, .47);
+    border: 1px solid rgba(0,0,255,.35);
+    border-radius: 13px;
+}
