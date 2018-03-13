@@ -6,7 +6,8 @@
 
 body
 {
-    background: rgba(0,0,255,.10);
+    /*background: rgba(0,0,255,.10);*/
+    background: rgb(0,0,0);
 }
 
 canvas
@@ -15,17 +16,18 @@ canvas
 }
 
 .bm,
-.bm2
+.bm2,
+.bm3
 {
     font-family: Arial;
-    font-size: 60px;
+    font-size: 30px;
     font-weight: bold;
 
     position: fixed;
-    top: 1px;
+    top: 20px;
     right: 20px;
 
-    color: rgba(149, 149, 255, .5);
+    color: rgba(255, 255, 255, .5);
 }
 
 .bm2
@@ -33,11 +35,23 @@ canvas
     font-size: 20px;
 
     top: auto;
-    right: auto;
+    right: 5px;
     bottom: 5px;
-    left: 50%;
+}
 
-    transform: translate(-50%, 0);
+.records
+{
+    top: auto;
+    left: 5px;
+    bottom: 5px;
+}
+
+.bm3
+{
+    position: fixed;
+    z-index: 9999999;
+    top: 20px;
+    left: 20px;
 }
 
 
@@ -56,8 +70,37 @@ canvas
     padding: 9px 18px;
 
     transform: translate(-50%, 0);
+    animation-name: blink;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 
-    color: rgba(0, 0, 255, .47);
-    border: 1px solid rgba(0,0,255,.35);
+    color: rgba(255, 255, 255, .47);
+    border: 1px solid rgba(255, 255, 255,.35);
     border-radius: 13px;
+}
+
+.title
+{
+    font-family: Arial;
+    font-size: 58px;
+    font-weight: bold;
+
+    position: fixed;
+    z-index: 99999;
+    top: 10%;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+    text-align: center;
+
+    color: rgba(255, 255, 255, .40);
+}
+
+@keyframes blink
+{
+    50%
+    {
+        opacity: .4;
+    }
 }
