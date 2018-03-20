@@ -24,7 +24,7 @@ canvas
     font-weight: bold;
 
     position: fixed;
-    top: 20px;
+    top: 18px;
     right: 20px;
 
     color: rgba(255, 255, 255, .5);
@@ -42,8 +42,8 @@ canvas
 .records
 {
     top: auto;
-    left: 5px;
     bottom: 5px;
+    left: 5px;
 }
 
 .bm3
@@ -80,6 +80,16 @@ canvas
     border-radius: 13px;
 }
 
+.buttonSetting
+{
+    position: fixed;
+    z-index: 99999;
+    top: 20px;
+    right: 20px;
+
+    color: rgba(255, 255, 255, .5);
+}
+
 .title
 {
     font-family: Arial;
@@ -95,6 +105,33 @@ canvas
     text-align: center;
 
     color: rgba(255, 255, 255, .40);
+}
+
+.settings p
+{
+    font-family: Arial;
+    font-size: 40px;
+    font-weight: bold;
+
+    position: fixed;
+    z-index: 99999;
+    top: 20%;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+    text-align: center;
+
+    color: rgba(255, 255, 255, .47);
+}
+
+.blocks
+{
+    position: fixed;
+    z-index: 99999;
+    top: 35%;
+    left: 50%;
+
+    transform: translate(-50%, 0);
 }
 
 @keyframes blink

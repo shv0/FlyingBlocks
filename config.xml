@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.example"
+    versionCode = "10"
+    version     = "1.0.1" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>FlyingBlocks</name>
+
+  <description>
+      Cool game for chilling out
+  </description>
+
+  <author href="https://shv.space" email="admin@shv.space">
+      Shevchenko Vitaly (ShV)
+  </author>
+
+  <icon src="img/ico.png" />
+  <plugin name="cordova-plugin-vibration" spec="~3.0.1" />
+  <plugin name="cordova-plugin-statusbar" spec="~2.4.1" />
+  <plugin name="cordova-plugin-device-motion" spec="~2.0.0" />
+
+  <preference name="StatusBarOverlaysWebView" value="true" />
+
+</widget>

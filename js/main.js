@@ -6,6 +6,8 @@ var bm3 = document.querySelector('.bm3');
 var button = document.querySelector('.buttonStart');
 var title = document.querySelector('.title');
 var record = document.querySelector('.record');
+var setting = document.querySelector('.buttonSetting');
+var settings = document.querySelector('.settings');
 
 (function() {
   var requestAnimationFrame = 
@@ -17,7 +19,15 @@ var record = document.querySelector('.record');
 
 })();
 
-record.innerHTML = localStorage.getItem('record');
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    console.log(navigator.accelerometer);
+    window.localStorage.setItem('record', window.localStorage.getItem('record'));
+}
+
+record.innerHTML = window.localStorage.getItem('record');
+
 
 /* GAME */
 
@@ -66,8 +76,6 @@ function createBalls() {
     }
 }
 
-localStorage.setItem('record', localStorage.getItem('record'));
-
 function drawBalls() {
 
     paint.clearRect(0,0,window.innerWidth, window.innerHeight);
@@ -93,12 +101,13 @@ function drawBalls() {
 
             if(xBlock >= (one.x - 40) && xBlock <= (one.x + 40)) {
 
-                if(localStorage.getItem('record') < count) {
-                    localStorage.setItem('record', count);
-                    record.innerHTML = localStorage.getItem('record');
+                if(window.localStorage.getItem('record') < count) {
+                    window.localStorage.setItem('record', count);
+                    record.innerHTML = window.localStorage.getItem('record');
                 }
 
-                fail();
+                
+                myEfficientFn();
 
             }
 
@@ -117,6 +126,25 @@ function drawBalls() {
 
 }
 
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+var myEfficientFn = debounce(function() {
+    fail();
+}, 50);
+
 var xBlock = (window.innerWidth / 2) + 20;
 var yBlock = (window.innerHeight / 2) + 20;
 
@@ -132,9 +160,9 @@ function block() {
 }
 
 function fail() {
-
     bm.innerHTML = '<span style="color:rgba(255,255,255,0.3)">0</span>';
     count = 0;
+    navigator.vibrate(150);
 
 }
 
@@ -184,12 +212,24 @@ window.onload = function() {
         bm.style.display = 'block';
         bm3.style.display = 'block';
         title.style.display = 'none';
+        setting.style.display = 'none';
 
         block();
         createBalls();
         drawBalls();
         generate();
     };
+
+    setting.onclick = function() {
+
+        title.style.display = 'none';
+        button.style.display = 'none';
+        bm3.style.display = 'block';
+        settings.style.display = 'block';
+
+    }
+
+
 }
 
 /* /MENU */
