@@ -1,1 +1,3 @@
 # FlyingBlocks
+Simple game
+
